@@ -1,0 +1,61 @@
+<!--pages/moveItem/moveItem.wxml-->
+<view>
+  <view>
+    <view class="cinema-wrap">
+      <view class="cinema-block">
+        <view class="crumbs-nav">
+          <a>猫眼电影</a> >
+          <a>翠苑电影大世界</a>
+        </view>
+        <view class="cinema-info">
+          <view class="title line-ellipsis">翠苑电影大世界</view>
+          <view class="location line-ellipsis">西湖区文一路298号物美超市6楼（近万塘路）</view>
+          <view class="location-icon">
+            <text class="iconfont icon-location"></text>
+          </view>
+        </view>
+        <view>
+          <view>
+            <view class="cinema-nav">
+              <view class="page-section page-section-spacing swiper">
+                <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+                  duration="{{duration}}">
+                  <block wx:for="(6)" wx:key="index">
+                    <swiper-item>
+                      <view class="swiper-item">
+                        <image src="../../assets/img/ban1.jpg"></image>
+                      </view>
+                    </swiper-item>
+                  </block>
+                </swiper>
+              </view>
+            </view>
+            <view class="movie-info">
+              <view class="movie-title line-ellipsis">
+                <span class="title">死无对证</span>
+                <span class="grade">
+                  <span>8.2<span class="small">分</span></span>
+                </span>
+              </view>
+              <view class="movie-desc line-ellipsis">
+                <span>
+                  <span>102分钟 |</span>
+                </span><span>
+                  <span> 剧情 |</span>
+                </span><span>
+                  <span>
+                    <span>
+                      <span>
+                        <a href="/celebrity/7560"> 里卡多·斯卡马乔</a>
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
