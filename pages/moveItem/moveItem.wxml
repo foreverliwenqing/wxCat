@@ -10,7 +10,7 @@
         <view class="cinema-info">
           <view class="title line-ellipsis">翠苑电影大世界</view>
           <view class="location line-ellipsis">西湖区文一路298号物美超市6楼（近万塘路）</view>
-          <view class="location-icon">
+          <view class="location-icon" bindtap="goMap">
             <text class="iconfont icon-location"></text>
           </view>
         </view>
@@ -19,16 +19,18 @@
             <view class="cinema-nav">
               <view class="page-section page-section-spacing swiper">
                 <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
-                  duration="{{duration}}">
-                  <block wx:for="(6)" wx:key="index">
-                    <swiper-item>
+                  current="{{current}}" bindchange="change">
+                  <block wx:for="{{bannerImg}}" wx:index="index">
+                    <swiper-item class="swiperItem" id='{{ index == current ? "active" : "" }}' bindtap="onItem"
+                      data-index="{{index}}" wx:key="index">
                       <view class="swiper-item">
-                        <image src="../../assets/img/ban1.jpg"></image>
+                        <image src="{{item.img}}"></image>
                       </view>
                     </swiper-item>
                   </block>
                 </swiper>
               </view>
+              <view class="post-bg" style="background-image: url('{{bgImg}}')"></view>
             </view>
             <view class="movie-info">
               <view class="movie-title line-ellipsis">
@@ -51,6 +53,49 @@
                     </span>
                   </span>
                 </span>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="nav-wrap">
+          <view class="nav-block mb-line-t">
+            <view class="nav-bar mb-line-b">
+              <view class="nav-bar-wrap">
+                <view class="nav-item">
+                  <span class="date-title">今天10月16日</span>
+                </view>
+                <view class="nav-item">
+                  <span class="date-title">周六10月17日</span>
+                </view>
+                <view class="nav-item active">
+                  <span class="date-title">周日10月18日</span>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="seatInner">
+          <view class="seat-list">
+            <view class="list-wrap" wx:for="{{9}}" wx:key="index">
+              <view class="item-outer">
+                <view class="item box-flex">
+                  <view class="time-block">
+                    <view class="begin">14:30</view>
+                    <view class="end">16:42<span class="tui">散场</span></view>
+                  </view>
+                  <view class="info-block">
+                    <view class="lan">原版 2D</view>
+                    <view class="hall">黄金厅(VIP)激光厅</view>
+                  </view>
+                  <view class="price">
+                    <view class="sellPr"><span class="d">¥</span><span><span class="stonefont">12.5</span></span></view>
+                    <view class="vipPrice"><span class="icon">折扣卡</span><span class="num">¥46.9</span></view>
+                    <view class="extraDesc">折扣卡首单特惠</view>
+                  </view>
+                  <view class="button-block">
+                    <view class="button">购票</view>
+                  </view>
+                </view>
               </view>
             </view>
           </view>

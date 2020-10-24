@@ -1,18 +1,48 @@
 // pages/moveItem/moveItem.js
 const app = new getApp()
+const APIjson = require("../../utils/getJson.js")
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    indicatorDots: true,
+    bannerImg: [],
+    indicatorDots: false,
     vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
-  },
+    autoplay: true,
+    interval: 100000,
+    duration: 500,
+    current: 0,
 
+    bgImg: ""
+  },
+  change(event, data) {
+    let that = this;
+    let index = event.detail.current;
+    that.setData({
+      current: index
+    })
+    APIjson.ajax("http://getJson.com", function (res) {
+      res.data.forEach(item => {
+        let reg = /\/w.h/
+        item.img = item.img.replace(reg, '')
+      });
+      that.setData({
+        bgImg: res.data[index].img
+      })
+    })
+  },
+  onItem(e) {
+    let index = e.currentTarget.dataset.index;
+    this.setData({
+      current: index
+    })
+  },
+  goMap() {
+    wx.navigateTo({
+      url: "/pages/map/map"
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -26,7 +56,16 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    let that = this;
+    APIjson.ajax("http://getJson.com", function (res) {
+      res.data.forEach(item => {
+        let reg = /\/w.h/
+        item.img = item.img.replace(reg, '')
+      });
+      that.setData({
+        bannerImg: res.data
+      })
+    })
   },
 
   /**

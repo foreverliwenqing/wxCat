@@ -1,6 +1,8 @@
 <view>
   <view class="detailBox">
-    <view class="detail_bg"></view>
+    <view class="detail_bg">
+      <image src="{{ moveItem.img }}"></image>
+    </view>
     <view class="detail_top">
       <view class="de_top_img">
         <image src="{{ moveItem.img }}"></image>

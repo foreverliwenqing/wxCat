@@ -8,7 +8,8 @@
     "pages/searchPage/searchPage",
     "pages/moveInfo/moveInfo",
     "pages/intrInfo/intrInfo",
-    "pages/moveItem/moveItem"
+    "pages/moveItem/moveItem",
+    "pages/map/map"
   ],
   "permission": {
     "scope.userLocation": {
